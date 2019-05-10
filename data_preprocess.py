@@ -128,3 +128,20 @@ for var_name in varlist:
         print(dp)
 
 #        woelist, mapping = woe_var(data,var_name,status_name,nbins)
+#
+s=df
+oneQuoter=s.quantile(0.25)
+threeQuote=s.quantile(0.75)
+irq=threeQuote-oneQuoter
+cmin=oneQuoter-1.5*irq
+cmax=threeQuote+1.5*irq
+xmax=df.max()
+xmin=df.min()
+if xmin < cmin and xmax > cmax:
+    mapseries=[xmin,cmin,cmax,xmax]
+elif xmin < cmin and xmax <= cmax:
+    mapseries=[xmin,cmin,xmax]
+elif xmin >= cmin and xmax > cmax:
+    mapseries=[xmin,cmax,xmax]
+else:
+    mapseries=[xmin,xmax]
