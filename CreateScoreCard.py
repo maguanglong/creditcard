@@ -5,7 +5,15 @@ from sklearn import model_selection
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 
-
+'''
+已完成：数据清洗；数据分箱；数据转化；模型拟合等
+已得到：
+1）入模变量；2）WOE数据；3）逻辑回归系数，包括intercept;
+目标完成：
+* 制作评分卡；
+* 把WOE值转化成分值，并得到最终的评分卡分数；
+* 对分数进行分段统计；
+'''
 def DataToScore(datawoe,coe):
 # 读取WOE数据转化为评分卡分值
     B = 20 / math.log(2)     #p值（比例因子） 
